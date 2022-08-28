@@ -1,6 +1,7 @@
 package com.dynamic.myapplication.activity.tab.fragment
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dynamic.myapplication.R
@@ -10,6 +11,7 @@ import com.dynamic.myapplication.base.fragment.BaseFragment
 import com.dynamic.myapplication.callback.IFollowViewCallBack
 import com.dynamic.myapplication.databinding.FragmentBaseLayoutBinding
 import com.dynamic.myapplication.model.FollowViewModel
+import com.dynamic.myapplication.utils.singleClick
 
 /**
  *  @version ：
@@ -73,6 +75,9 @@ class FollowFragment : BaseFragment<FragmentBaseLayoutBinding>(), IFollowViewCal
             hideLoading()
             mFollowListAdapter.addData(it)
         })
+        mFollowListAdapter.setOnItemListener { v, data, position ->
+            Toast.makeText(mActivity, "点击了" + data?.login, Toast.LENGTH_SHORT).show()
+        }
     }
 
     /**
