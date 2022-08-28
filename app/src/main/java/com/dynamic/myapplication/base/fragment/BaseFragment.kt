@@ -107,6 +107,8 @@ abstract class BaseFragment<DB : ViewDataBinding> : Fragment() {
         emptyView.visibility = View.VISIBLE
         emptyView.text = activity?.resources?.getString(R.string.request_data_empty)
         emptyView.setOnClickListener {
+            normalView.visibility = View.VISIBLE
+            emptyView.visibility = View.GONE
             block()
         }
     }
@@ -119,6 +121,8 @@ abstract class BaseFragment<DB : ViewDataBinding> : Fragment() {
         errorView.visibility = View.VISIBLE
         errorView.text = activity?.resources?.getString(R.string.request_data_error)
         errorView.setOnClickListener {
+            normalView.visibility = View.VISIBLE
+            errorView.visibility = View.GONE
             block()
         }
     }
